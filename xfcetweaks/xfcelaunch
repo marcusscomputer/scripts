@@ -1,0 +1,68 @@
+#!/bin/bash
+
+if [ $1 == "gimp" ]
+then
+	wmctrl -s 3
+	/usr/bin/gimp
+fi
+if [ $1 == "web" ]
+then
+	wmctrl -s 2
+	/usr/bin/firefox
+fi
+if [ $1 == "epiphany" ]
+then
+	wmctrl -s 2
+	/usr/bin/epiphany
+fi
+if [ $1 == "reaper" ]
+then
+	wmctrl -s 4
+	/usr/bin/reaper
+fi
+if [ $1 == "ardour" ]
+then
+	wmctrl -s 4
+	/usr/bin/ardour5
+fi
+if [ $1 == "wow" ]
+then
+	wmctrl -s 4
+	lutris lutris:rungameid/1	
+fi
+if [ $1 == "qtcreator" ]
+then
+	wmctrl -s 1
+	qtcreator	
+fi
+if [ $1 == "blender" ]
+then
+	wmctrl -s 3
+	blender	
+fi
+if [ $1 == "obs" ]
+then
+	wmctrl -s 5
+	obs
+fi
+if [ $1 == "mail" ]
+then
+	wmctrl -s 0
+	/usr/bin/geary
+fi
+if [ $1 == "discord" ]
+then
+	wmctrl -s 0
+	/usr/bin/discord
+fi
+if [ $1 == "kdenlive" ]
+then
+	wmctrl -s 5
+	/usr/bin/kdenlive
+fi
+if [ $1 == "gvim" ]
+then
+	wmctrl -s 1
+	/usr/bin/gvim
+fi
+

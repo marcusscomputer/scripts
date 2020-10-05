@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# The script that installs it all.
+
+echo ""
+echo " INSTALLING MARCUS-S SYSTMONE PACKAGES:"
+echo ""
+
+sudo pacman -S \
+dhcpcd \
+blender \
+gimp \
+firefox \
+ardour \
+audacity \
+obs-studio \
+jack2 \
+qjackctl \
+remmina \
+carla \
+calf \
+qtcreator \
+geary \
+git \
+a2jmidid \
+pulseaudio-jack \
+ranger \
+w3m \
+mc \
+fish \
+xdotool \
+samplv1 \
+synthv1 \
+xfce4 \
+xfce4-goodies \
+lightdm \
+lightdm-gtk-greeter-settings \
+nautilus \
+nvidia \
+virtualbox \
+steam \
+kdenlive \
+simplescreenrecorder \
+sakura \
+vlc \
+vim \
+discord \
+networkmanager \
+nm-connection-editor \
+network-manager-applet
+
+# Installing Trizen real quick
+echo ""
+echo " Installing Trizen:"
+echo ""
+cd /tmp
+git clone https://aur.archlinux.org/trizen.git && cd trizen && makepkg -si
+
+echo ""
+echo " Installing pamac:"
+echo ""
+trizen -S pamac-aur
+
+echo ""
+echo " Installing Slick greeter:"
+echo ""
+trizen -S lightdm-slick-greeter
+echo ""
+
+echo ""
+echo " Installing Clear Sans:"
+echo ""
+trizen -S ttf-clear-sans
+echo ""
+
+echo ""
+echo " Enabling services:"
+sudo systemctl enable lightdm
+sudo systemctl enable NetworkManager
+
+echo ""
+echo " Please edit /etc/lightdm/lightdm.conf and change the"
+echo " Seat: section like so:"
+echo " greeter-session=lightdm-slick-greeter"
+echo ""
+echo " Edit /etc/vconsole.conf to have the following:"
+echo " KEYMAP=de"
+echo ""
+
+echo " DONE. Reboot needed."
+
+cd /

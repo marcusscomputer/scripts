@@ -1,0 +1,5 @@
+#!/bin/bash
+
+gpg -o /tmp/passvault -d /home/marcus-s/Private/Important/passdb
+vim /tmp/passvault
+rm -rf /tmp/passvault

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cryptsetup -v -y --cipher aes-xts-plain64 --key-size 256 --hash sha256 --iter-time 2000 --use-urandom --verify-passphrase luksFormat /dev/$1
+cryptsetup open /dev/$1 $2

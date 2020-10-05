@@ -1,0 +1,78 @@
+#!/bin/bash
+
+# Lights up all control panels for Ardour work on the APC mini prior to
+# launching JACK and Ardour itself. Each section gets a different color.
+
+# First, find out which HW ID is assigned to the APC mini
+APCMINI=`amidi -l | grep "APC MINI" | grep -oP '(?<=hw:)[\d.]+'`
+
+# Make life easier
+CMD="amidi -p hw:$APCMINI,0,0 -S"
+
+# Delay for Light Show
+DELAY="sleep 0.03"
+
+# Now light up upper left in yellow
+$CMD '90 38 05'; $DELAY
+$CMD '90 39 05'; $DELAY
+$CMD '90 3A 05'; $DELAY
+$CMD '90 3B 05'; $DELAY
+$CMD '90 30 05'; $DELAY
+$CMD '90 31 05'; $DELAY
+$CMD '90 32 05'; $DELAY
+$CMD '90 33 05'; $DELAY
+$CMD '90 28 05'; $DELAY
+$CMD '90 29 05'; $DELAY
+$CMD '90 2A 05'; $DELAY
+$CMD '90 2B 05'; $DELAY
+$CMD '90 20 05'; $DELAY
+$CMD '90 21 05'; $DELAY
+$CMD '90 22 05'; $DELAY
+$CMD '90 23 05'; $DELAY
+
+# Upper right in green
+$CMD '90 3C 01'; $DELAY
+$CMD '90 3D 01'; $DELAY
+$CMD '90 3E 01'; $DELAY
+$CMD '90 3F 01'; $DELAY
+$CMD '90 34 01'; $DELAY
+$CMD '90 35 01'; $DELAY
+$CMD '90 36 01'; $DELAY
+$CMD '90 37 01'; $DELAY
+$CMD '90 2C 01'; $DELAY
+$CMD '90 2D 01'; $DELAY
+$CMD '90 2E 01'; $DELAY
+$CMD '90 2F 01'; $DELAY
+$CMD '90 24 01'; $DELAY
+$CMD '90 25 01'; $DELAY
+$CMD '90 26 01'; $DELAY
+$CMD '90 27 01'; $DELAY
+
+# Drum Pad in red
+$CMD '90 18 03'; $DELAY
+$CMD '90 19 03'; $DELAY
+$CMD '90 1A 03'; $DELAY
+$CMD '90 1B 03'; $DELAY
+$CMD '90 10 03'; $DELAY
+$CMD '90 11 03'; $DELAY
+$CMD '90 12 03'; $DELAY
+$CMD '90 13 03'; $DELAY
+$CMD '90 08 03'; $DELAY
+$CMD '90 09 03'; $DELAY
+$CMD '90 0A 03'; $DELAY
+$CMD '90 0B 03'; $DELAY
+$CMD '90 00 03'; $DELAY
+$CMD '90 01 03'; $DELAY
+$CMD '90 02 03'; $DELAY
+$CMD '90 03 03'; $DELAY
+
+# Light up the function buttons on the right
+$CMD '90 52 01'; $DELAY
+$CMD '90 53 01'; $DELAY
+$CMD '90 54 01'; $DELAY
+$CMD '90 55 01'; $DELAY
+$CMD '90 56 01'; $DELAY
+$CMD '90 57 01'; $DELAY
+$CMD '90 58 01'; $DELAY
+
+# That's it
